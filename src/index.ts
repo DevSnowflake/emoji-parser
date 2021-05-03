@@ -1,4 +1,4 @@
-import { CanvasRenderingContext2D } from "canvas";
+import { SKRSContext2D as CanvasRenderingContext2D } from "@napi-rs/canvas";
 import { Util, ParsedChunks } from "./Util";
 
 export interface MeasureTextData {
@@ -27,6 +27,7 @@ class CanvacordEmojiParser {
 
         const textEntities = Util.split(text);
         const fontSize = Util.getFontSize(context.font);
+        // @ts-ignore
         const baseLine = context.measureText('').alphabeticBaseline;
         const textAlign = context.textAlign;
 
@@ -111,6 +112,7 @@ class CanvacordEmojiParser {
 
         return {
             width: currentWidth,
+            // @ts-ignore
             alphabeticBaseline: measured.alphabeticBaseline
         };
     }

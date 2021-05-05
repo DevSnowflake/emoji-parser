@@ -1,4 +1,4 @@
-import { CanvasRenderingContext2D } from "canvas";
+import { SKRSContext2D as CanvasRenderingContext2D } from "@napi-rs/canvas";
 import { Util, ParsedChunks } from "./Util";
 
 export interface MeasureTextData {
@@ -20,13 +20,14 @@ class CanvacordEmojiParser {
 
     static async drawTextWithEmoji(context: CanvasRenderingContext2D, fillType: "fill" | "stroke", text: string, x: number, y: number, options?: DrawTextWithEmojiParams): Promise<void> {
         const ops = {
-            maxWidth: options && options.maxWidth || Infinity,
-            emojiSideMarginPercent: options && options.emojiSideMarginPercent || 0.1,
-            emojiTopMarginPercent: options && options.emojiTopMarginPercent || 0.1
+            maxWidth: options?.maxWidth ?? Infinity,
+            emojiSideMarginPercent: options?.emojiSideMarginPercent ?? 0.1,
+            emojiTopMarginPercent: options?.emojiTopMarginPercent ?? 0.1
         };
 
         const textEntities = Util.split(text);
         const fontSize = Util.getFontSize(context.font);
+        // @ts-ignore
         const baseLine = context.measureText('').alphabeticBaseline;
         const textAlign = context.textAlign;
 
@@ -111,6 +112,7 @@ class CanvacordEmojiParser {
 
         return {
             width: currentWidth,
+            // @ts-ignore
             alphabeticBaseline: measured.alphabeticBaseline
         };
     }

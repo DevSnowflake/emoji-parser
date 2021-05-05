@@ -1,5 +1,6 @@
 import { parse } from "twemoji-parser";
-import { loadImage, Image } from "canvas";
+import { Image } from "@napi-rs/canvas";
+import { loadImage } from "./loadImage";
 
 const emojiCache = new Map<string, Image>();
 const discordEmojiPattern = "<a?:\\w+:(\\d{17,19})>";

@@ -20,9 +20,9 @@ class CanvacordEmojiParser {
 
     static async drawTextWithEmoji(context: CanvasRenderingContext2D, fillType: "fill" | "stroke", text: string, x: number, y: number, options?: DrawTextWithEmojiParams): Promise<void> {
         const ops = {
-            maxWidth: options && options.maxWidth || Infinity,
-            emojiSideMarginPercent: options && options.emojiSideMarginPercent || 0.1,
-            emojiTopMarginPercent: options && options.emojiTopMarginPercent || 0.1
+            maxWidth: options?.maxWidth ?? Infinity,
+            emojiSideMarginPercent: options?.emojiSideMarginPercent ?? 0.1,
+            emojiTopMarginPercent: options?.emojiTopMarginPercent ?? 0.1
         };
 
         const textEntities = Util.split(text);

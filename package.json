@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/DevSnowflake/emoji-parser#readme",
   "devDependencies": {
-    "@napi-rs/canvas": "^0.0.4",
+    "@napi-rs/canvas": "^0.0.5",
     "@types/node": "^14.14.20",
     "@types/node-fetch": "^2.5.10",
     "@types/twemoji-parser": "^12.1.0",
